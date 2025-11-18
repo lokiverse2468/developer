@@ -1,5 +1,3 @@
-'use client';
-
 import { FaHospital } from 'react-icons/fa';
 
 export default function ApolloLogo({ width = 120, height = 120 }: { width?: number; height?: number }) {
