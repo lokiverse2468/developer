@@ -1,5 +1,3 @@
-'use client';
-
 import Link from 'next/link';
 import Navigation from '@/components/Navigation';
 import { FaStethoscope, FaHospital, FaUserMd, FaCheckCircle, FaQuoteLeft, FaArrowRight } from 'react-icons/fa';
