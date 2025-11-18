@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, Suspense } from 'react';
+import Navigation from '@/components/Navigation';
 import ApolloLogo from '@/components/ApolloLogo';
 import AppointmentForm from '@/components/AppointmentForm';
 import AppointmentList from '@/components/AppointmentList';
@@ -92,16 +93,19 @@ function AppointmentsContent() {
 
 export default function AppointmentsPage() {
   return (
-    <div className="container">
-      <div className="header">
-        <ApolloLogo width={100} height={100} />
-        <h1>Appointment Management</h1>
-        <p>Create and manage patient appointments</p>
-      </div>
+    <>
+      <Navigation />
+      <div className="container">
+        <div className="header">
+          <ApolloLogo width={100} height={100} />
+          <h1>Appointment Management</h1>
+          <p>Create and manage patient appointments</p>
+        </div>
 
-      <Suspense fallback={<div className="loading">Loading...</div>}>
-        <AppointmentsContent />
-      </Suspense>
-    </div>
+        <Suspense fallback={<div className="loading">Loading...</div>}>
+          <AppointmentsContent />
+        </Suspense>
+      </div>
+    </>
   );
 }
