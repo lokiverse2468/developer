@@ -91,7 +91,7 @@ export default function AppointmentForm() {
       setErrors({});
       setTimeout(() => {
         window.location.reload();
-      }, 1000);
+      }, 500);
       setTimeout(() => setMessage(null), 3000);
     } catch (error: any) {
       setMessage({ type: 'error', text: error.message || 'Failed to create appointment' });

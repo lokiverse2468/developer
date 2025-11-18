@@ -2,7 +2,8 @@ const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001';
 
 export const api = {
   getAppointments: async (skip: number = 0, limit: number = 3) => {
-    const response = await fetch(`${API_BASE_URL}/api/appointments?skip=${skip}&limit=${limit}`, {
+    const timestamp = Date.now();
+    const response = await fetch(`${API_BASE_URL}/api/appointments?skip=${skip}&limit=${limit}&_t=${timestamp}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',

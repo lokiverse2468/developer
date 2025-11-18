@@ -1,7 +1,7 @@
 class InMemoryCache {
   constructor() {
     this.cache = new Map();
-    this.defaultTTL = 60000;
+    this.defaultTTL = 5000;
   }
 
   set(key, value, ttl = this.defaultTTL) {

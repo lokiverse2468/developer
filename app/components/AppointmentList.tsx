@@ -90,7 +90,9 @@ export default function AppointmentList({
     setAppointments((prev) => prev.filter((apt) => apt.id !== appointmentId));
     
     if (onRefresh) {
-      setTimeout(() => onRefresh(), 100);
+      setTimeout(() => {
+        onRefresh();
+      }, 200);
     }
     
     api.deleteAppointment(appointmentId).catch((error: any) => {
