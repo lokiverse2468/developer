@@ -1,0 +1,27 @@
+{
+  "name": "appointment-management-server",
+  "version": "1.0.0",
+  "description": "Express backend for Appointment Management System",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "start": "node index.js",
+    "build": "node -e \"console.log('Express server - no build step required. Use npm start to run the server.'); process.exit(0);\""
+  },
+  "keywords": [
+    "express",
+    "postgres",
+    "appointment"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.81.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  }
+}
