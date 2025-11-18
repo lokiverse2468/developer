@@ -13,9 +13,15 @@ const allowedOrigins = [
   process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : null,
 ].filter(Boolean);
 
+const isVercelUrl = (origin) => {
+  return origin && origin.includes('.vercel.app');
+};
+
 app.use(cors({
   origin: function (origin, callback) {
-    if (!origin || allowedOrigins.includes(origin)) {
+    if (!origin) {
+      callback(null, true);
+    } else if (allowedOrigins.includes(origin) || isVercelUrl(origin)) {
       callback(null, true);
     } else {
       callback(new Error('Not allowed by CORS'));
