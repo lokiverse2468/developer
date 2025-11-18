@@ -4,8 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { api } from '@/lib/api';
 import EditAppointmentModal from './EditAppointmentModal';
-import ConfirmDialog from './ConfirmDialog';
-import { FaEdit, FaTrash } from 'react-icons/fa';
+import { FaEdit } from 'react-icons/fa';
 
 interface Appointment {
   id: number;
@@ -41,9 +40,6 @@ export default function AppointmentList({
   const [updatingStatus, setUpdatingStatus] = useState<number | null>(null);
   const [editingAppointment, setEditingAppointment] = useState<Appointment | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [deleting, setDeleting] = useState<number | null>(null);
-  const [showConfirmDialog, setShowConfirmDialog] = useState(false);
-  const [appointmentToDelete, setAppointmentToDelete] = useState<number | null>(null);
 
   useEffect(() => {
     setAppointments(initialAppointments);
@@ -71,52 +67,6 @@ export default function AppointmentList({
     } finally {
       setUpdatingStatus(null);
     }
-  };
-
-  const handleDeleteClick = (id: number) => {
-    setAppointmentToDelete(id);
-    setShowConfirmDialog(true);
-  };
-
-  const handleDeleteConfirm = async () => {
-    if (!appointmentToDelete) return;
-
-    const appointmentId = appointmentToDelete;
-    const appointmentToRestore = appointments.find(apt => apt.id === appointmentId);
-    
-    setShowConfirmDialog(false);
-    setDeleting(appointmentId);
-    
-    setAppointments((prev) => prev.filter((apt) => apt.id !== appointmentId));
-    
-    if (onRefresh) {
-      setTimeout(() => {
-        onRefresh();
-      }, 200);
-    }
-    
-    api.deleteAppointment(appointmentId).catch((error: any) => {
-      if (appointmentToRestore) {
-        setAppointments((prev) => {
-          const exists = prev.find(apt => apt.id === appointmentId);
-          if (!exists) {
-            return [...prev, appointmentToRestore].sort((a, b) => 
-              new Date(a.scheduled_at).getTime() - new Date(b.scheduled_at).getTime()
-            );
-          }
-          return prev;
-        });
-      }
-      alert(error.message || 'Failed to delete appointment. Item restored.');
-    }).finally(() => {
-      setDeleting(null);
-      setAppointmentToDelete(null);
-    });
-  };
-
-  const handleDeleteCancel = () => {
-    setShowConfirmDialog(false);
-    setAppointmentToDelete(null);
   };
 
   const formatDateTime = (dateString: string) => {
@@ -219,66 +169,33 @@ export default function AppointmentList({
                 </td>
                 <td>{appointment.notes || '-'}</td>
                 <td>
-                  <div className="action-buttons">
-                    <button
-                      onClick={() => handleEdit(appointment)}
-                      className="btn-action btn-edit"
-                      title="Edit Appointment"
-                      style={{
-                        background: 'none',
-                        border: 'none',
-                        cursor: 'pointer',
-                        padding: '0.5rem',
-                        borderRadius: '0.375rem',
-                        color: '#3b82f6',
-                        transition: 'all 0.2s ease',
-                        display: 'inline-flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                      }}
-                      onMouseEnter={(e) => {
-                        e.currentTarget.style.background = 'rgba(59, 130, 246, 0.1)';
-                        e.currentTarget.style.transform = 'scale(1.1)';
-                      }}
-                      onMouseLeave={(e) => {
-                        e.currentTarget.style.background = 'none';
-                        e.currentTarget.style.transform = 'scale(1)';
-                      }}
-                    >
-                      <FaEdit size={16} />
-                    </button>
-                    <button
-                      onClick={() => handleDeleteClick(appointment.id)}
-                      className="btn-action btn-delete"
-                      disabled={deleting === appointment.id}
-                      title="Delete Appointment"
-                      style={{
-                        background: 'none',
-                        border: 'none',
-                        cursor: deleting === appointment.id ? 'not-allowed' : 'pointer',
-                        padding: '0.5rem',
-                        borderRadius: '0.375rem',
-                        color: deleting === appointment.id ? '#9ca3af' : '#ef4444',
-                        transition: 'all 0.2s ease',
-                        display: 'inline-flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        opacity: deleting === appointment.id ? 0.5 : 1,
-                      }}
-                      onMouseEnter={(e) => {
-                        if (deleting !== appointment.id) {
-                          e.currentTarget.style.background = 'rgba(239, 68, 68, 0.1)';
-                          e.currentTarget.style.transform = 'scale(1.1)';
-                        }
-                      }}
-                      onMouseLeave={(e) => {
-                        e.currentTarget.style.background = 'none';
-                        e.currentTarget.style.transform = 'scale(1)';
-                      }}
-                    >
-                      <FaTrash size={16} />
-                    </button>
-                  </div>
+                  <button
+                    onClick={() => handleEdit(appointment)}
+                    className="btn-action btn-edit"
+                    title="Edit Appointment"
+                    style={{
+                      background: 'none',
+                      border: 'none',
+                      cursor: 'pointer',
+                      padding: '0.5rem',
+                      borderRadius: '0.375rem',
+                      color: '#3b82f6',
+                      transition: 'all 0.2s ease',
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.background = 'rgba(59, 130, 246, 0.1)';
+                      e.currentTarget.style.transform = 'scale(1.1)';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.background = 'none';
+                      e.currentTarget.style.transform = 'scale(1)';
+                    }}
+                  >
+                    <FaEdit size={16} />
+                  </button>
                 </td>
               </tr>
             ))}
