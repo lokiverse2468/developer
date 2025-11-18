@@ -273,16 +273,6 @@ export default function AppointmentList({
           </div>
         </div>
       )}
-
-      <ConfirmDialog
-        isOpen={showConfirmDialog}
-        title="Delete Appointment"
-        message="Are you sure you want to delete this appointment? This action cannot be undone."
-        onConfirm={handleDeleteConfirm}
-        onCancel={handleDeleteCancel}
-        confirmText="Delete"
-        cancelText="Cancel"
-      />
     </>
   );
 }
