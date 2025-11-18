@@ -8,225 +8,84 @@ export default function Home() {
       <Navigation />
       
       <div>
-        <section style={{
-          padding: '4rem 2rem',
-          maxWidth: '1200px',
-          margin: '0 auto',
-          display: 'flex',
-          alignItems: 'center',
-          gap: '3rem',
-          minHeight: '80vh',
-        }}>
-          <div style={{ flex: 1 }}>
-            <h1 style={{
-              fontSize: '3.5rem',
-              fontWeight: '800',
-              color: '#1f2937',
-              marginBottom: '1.5rem',
-              lineHeight: '1.2',
-            }}>
+        <section className="hero-section">
+          <div className="hero-content">
+            <h1 className="hero-title">
               Easily Find Your Ideal Doctor
             </h1>
-            <p style={{
-              fontSize: '1.25rem',
-              color: '#6b7280',
-              marginBottom: '2rem',
-              lineHeight: '1.6',
-            }}>
+            <p className="hero-description">
               Experience world-class healthcare with Apollo Hospitals. Book your appointment online and get the best medical care from our expert doctors.
             </p>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '2rem', marginBottom: '2rem' }}>
-              <Link href="/appointments" style={{
-                backgroundColor: '#10b981',
-                color: '#ffffff',
-                padding: '1rem 2rem',
-                borderRadius: '0.5rem',
-                textDecoration: 'none',
-                fontWeight: '600',
-                fontSize: '1.1rem',
-                transition: 'all 0.2s',
-                boxShadow: '0 4px 12px rgba(16, 185, 129, 0.4)',
-                display: 'inline-block',
-              }}>
+            <div className="hero-buttons">
+              <Link href="/appointments" className="btn-primary-hero">
                 Book Appointment
               </Link>
-              <Link href="/#about" style={{
-                color: '#10b981',
-                textDecoration: 'none',
-                fontWeight: '600',
-                fontSize: '1.1rem',
-                padding: '1rem 2rem',
-                border: '2px solid #10b981',
-                borderRadius: '0.5rem',
-                transition: 'all 0.2s',
-              }}>
+              <Link href="/#about" className="btn-secondary-hero">
                 Learn More
               </Link>
             </div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', color: '#6b7280' }}>
-              <span style={{ fontWeight: '600' }}>95K+ Join in already</span>
-              <div style={{ display: 'flex', gap: '-0.5rem' }}>
+            <div className="hero-stats">
+              <span className="stats-text">95K+ Join in already</span>
+              <div className="stats-avatars">
                 {[1, 2, 3, 4].map((i) => (
-                  <div key={i} style={{
-                    width: '40px',
-                    height: '40px',
-                    borderRadius: '50%',
-                    backgroundColor: '#10b981',
-                    border: '3px solid #0f172a',
-                    marginLeft: i > 1 ? '-10px' : '0',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    color: '#ffffff',
-                    fontWeight: '600',
-                  }}>
+                  <div key={i} className="avatar-circle">
                     {i}
                   </div>
                 ))}
               </div>
             </div>
           </div>
-          <div style={{ flex: 1, display: 'flex', justifyContent: 'center' }}>
-            <div style={{
-              width: '400px',
-              height: '400px',
-              borderRadius: '50%',
-              backgroundColor: '#10b981',
-              opacity: 0.2,
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              fontSize: '8rem',
-              color: '#ffffff',
-            }}>
+          <div className="hero-image">
+            <div className="hero-icon-circle">
               <FaUserMd />
             </div>
           </div>
         </section>
 
-        <section id="search" style={{
-          padding: '3rem 2rem',
-          maxWidth: '1200px',
-          margin: '0 auto',
-        }}>
-          <h2 style={{
-            fontSize: '2rem',
-            fontWeight: '700',
-            color: '#1f2937',
-            marginBottom: '1.5rem',
-            textAlign: 'center',
-          }}>
+        <section id="search" className="search-section">
+          <h2 className="section-title">
             Find Your Perfect Doctor
           </h2>
-          <div style={{
-            backgroundColor: '#ffffff',
-            padding: '1.25rem',
-            borderRadius: '0.75rem',
-            boxShadow: '0 10px 30px rgba(0, 0, 0, 0.3)',
-            display: 'flex',
-            gap: '0.75rem',
-            alignItems: 'center',
-          }}>
+          <div className="search-form">
             <input
               type="text"
               placeholder="Doctor Name"
-              style={{
-                flex: 1,
-                padding: '0.75rem',
-                border: '1px solid #d1d5db',
-                borderRadius: '0.4rem',
-                fontSize: '0.9rem',
-              }}
+              className="search-input"
             />
             <input
               type="text"
               placeholder="Specialist"
-              style={{
-                flex: 1,
-                padding: '0.75rem',
-                border: '1px solid #d1d5db',
-                borderRadius: '0.4rem',
-                fontSize: '0.9rem',
-              }}
+              className="search-input"
             />
             <input
               type="text"
               placeholder="Hospital"
-              style={{
-                flex: 1,
-                padding: '0.75rem',
-                border: '1px solid #d1d5db',
-                borderRadius: '0.4rem',
-                fontSize: '0.9rem',
-              }}
+              className="search-input"
             />
-            <Link href="/appointments" style={{
-              backgroundColor: '#10b981',
-              color: '#ffffff',
-              padding: '0.75rem 1.5rem',
-              borderRadius: '0.4rem',
-              textDecoration: 'none',
-              fontWeight: '600',
-              fontSize: '0.9rem',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '0.5rem',
-            }}>
+            <Link href="/appointments" className="search-button">
               Search
             </Link>
           </div>
         </section>
 
-        <section id="services" style={{
-          padding: '4rem 2rem',
-          maxWidth: '1200px',
-          margin: '0 auto',
-        }}>
-          <h2 style={{
-            fontSize: '2.5rem',
-            fontWeight: '700',
-            color: '#1f2937',
-            marginBottom: '3rem',
-            textAlign: 'center',
-          }}>
+        <section id="services" className="services-section">
+          <h2 className="section-title-large">
             Comprehensive Healthcare Services
           </h2>
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-            gap: '2rem',
-          }}>
+          <div className="services-grid">
             {[
               { icon: <FaStethoscope />, title: 'Emergency', desc: '24/7 emergency care with immediate response and expert medical attention.' },
               { icon: <FaHospital />, title: 'Medical Center', desc: 'State-of-the-art facilities with advanced medical equipment and technology.' },
               { icon: <FaUserMd />, title: 'Doctor Specialist', desc: 'Experienced specialists across all medical fields for comprehensive care.' },
             ].map((service, idx) => (
-              <div key={idx} style={{
-                backgroundColor: '#ffffff',
-                padding: '2rem',
-                borderRadius: '1rem',
-                boxShadow: '0 4px 20px rgba(0, 0, 0, 0.2)',
-                transition: 'transform 0.2s',
-              }}>
-                <div style={{
-                  fontSize: '3rem',
-                  color: '#10b981',
-                  marginBottom: '1rem',
-                }}>
+              <div key={idx} className="service-card">
+                <div className="service-icon">
                   {service.icon}
                 </div>
-                <h3 style={{
-                  fontSize: '1.5rem',
-                  fontWeight: '700',
-                  color: '#374151',
-                  marginBottom: '1rem',
-                }}>
+                <h3 className="service-title">
                   {service.title}
                 </h3>
-                <p style={{
-                  color: '#6b7280',
-                  lineHeight: '1.6',
-                }}>
+                <p className="service-description">
                   {service.desc}
                 </p>
               </div>
@@ -234,88 +93,34 @@ export default function Home() {
           </div>
         </section>
 
-        <section style={{
-          padding: '4rem 2rem',
-          backgroundColor: 'rgba(16, 185, 129, 0.1)',
-          margin: '4rem 0',
-        }}>
-          <div style={{
-            maxWidth: '1200px',
-            margin: '0 auto',
-            display: 'flex',
-            alignItems: 'center',
-            gap: '3rem',
-          }}>
-            <div style={{ flex: 1 }}>
-              <h2 style={{
-                fontSize: '2.5rem',
-                fontWeight: '700',
-                color: '#1f2937',
-                marginBottom: '1.5rem',
-              }}>
+        <section className="feature-section">
+          <div className="feature-container">
+            <div className="feature-content">
+              <h2 className="feature-title">
                 Easy Online Appointment Booking
               </h2>
-              <p style={{
-                fontSize: '1.1rem',
-                color: '#6b7280',
-                marginBottom: '2rem',
-                lineHeight: '1.6',
-              }}>
+              <p className="feature-description">
                 Book your appointment in just a few clicks. Our online system makes it easy to schedule your visit with our expert doctors.
               </p>
-              <Link href="/appointments" style={{
-                backgroundColor: '#10b981',
-                color: '#ffffff',
-                padding: '1rem 2rem',
-                borderRadius: '0.5rem',
-                textDecoration: 'none',
-                fontWeight: '600',
-                display: 'inline-block',
-              }}>
+              <Link href="/appointments" className="feature-button">
                 Learn More
               </Link>
             </div>
-            <div style={{ flex: 1, textAlign: 'center' }}>
-              <div style={{
-                width: '300px',
-                height: '300px',
-                margin: '0 auto',
-                backgroundColor: '#10b981',
-                borderRadius: '1rem',
-                opacity: 0.3,
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                fontSize: '6rem',
-                color: '#ffffff',
-              }}>
+            <div className="feature-image">
+              <div className="feature-icon-box">
                 <FaUserMd />
               </div>
             </div>
           </div>
         </section>
 
-        <section id="about" style={{
-          padding: '4rem 2rem',
-          maxWidth: '1200px',
-          margin: '0 auto',
-        }}>
-          <h2 style={{
-            fontSize: '2.5rem',
-            fontWeight: '700',
-            color: '#1f2937',
-            marginBottom: '3rem',
-            textAlign: 'center',
-          }}>
+        <section id="about" className="about-section">
+          <h2 className="section-title-large">
             Convenient Appointment Scheduling
           </h2>
-          <div style={{
-            display: 'flex',
-            gap: '3rem',
-            alignItems: 'center',
-          }}>
-            <div style={{ flex: 1 }}>
-              <ul style={{ listStyle: 'none', padding: 0 }}>
+          <div className="about-container">
+            <div className="about-content">
+              <ul className="features-list">
                 {[
                   'Book appointments 24/7 from anywhere',
                   'Choose your preferred doctor and time slot',
@@ -323,107 +128,45 @@ export default function Home() {
                   'Reschedule or cancel easily online',
                   'Access your medical history anytime',
                 ].map((feature, idx) => (
-                  <li key={idx} style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '1rem',
-                    marginBottom: '1.5rem',
-                    color: '#374151',
-                    fontSize: '1.1rem',
-                  }}>
-                    <FaCheckCircle style={{ color: '#10b981', fontSize: '1.5rem', flexShrink: 0 }} />
+                  <li key={idx} className="feature-item">
+                    <FaCheckCircle className="check-icon" />
                     <span>{feature}</span>
                   </li>
                 ))}
               </ul>
-              <Link href="/appointments" style={{
-                backgroundColor: '#10b981',
-                color: '#ffffff',
-                padding: '1rem 2rem',
-                borderRadius: '0.5rem',
-                textDecoration: 'none',
-                fontWeight: '600',
-                display: 'inline-block',
-                marginTop: '2rem',
-              }}>
+              <Link href="/appointments" className="about-button">
                 Learn More
               </Link>
             </div>
-            <div style={{ flex: 1, textAlign: 'center' }}>
-              <div style={{
-                width: '400px',
-                height: '300px',
-                margin: '0 auto',
-                backgroundColor: '#10b981',
-                borderRadius: '1rem',
-                opacity: 0.3,
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                fontSize: '6rem',
-                color: '#ffffff',
-              }}>
+            <div className="about-image">
+              <div className="about-icon-box">
                 <FaUserMd />
               </div>
             </div>
           </div>
         </section>
 
-        <section style={{
-          padding: '4rem 2rem',
-          maxWidth: '1200px',
-          margin: '0 auto',
-        }}>
-          <h2 style={{
-            fontSize: '2.5rem',
-            fontWeight: '700',
-            color: '#1f2937',
-            marginBottom: '3rem',
-            textAlign: 'center',
-          }}>
+        <section className="testimonials-section">
+          <h2 className="section-title-large">
             Testimonial Patient's
           </h2>
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-            gap: '2rem',
-          }}>
+          <div className="testimonials-grid">
             {[
               { name: 'Michael T', role: 'Medical Treatment', text: 'Excellent service and professional care. The online booking system made it so convenient to schedule my appointment.' },
               { name: 'Sarah M', role: 'Creative Director', text: 'The doctors are highly skilled and the facilities are top-notch. Highly recommend Apollo Hospitals for all medical needs.' },
             ].map((testimonial, idx) => (
-              <div key={idx} style={{
-                backgroundColor: '#ffffff',
-                padding: '2rem',
-                borderRadius: '1rem',
-                boxShadow: '0 4px 20px rgba(0, 0, 0, 0.2)',
-              }}>
-                <FaQuoteLeft style={{ fontSize: '3rem', color: '#10b981', marginBottom: '1rem' }} />
-                <p style={{
-                  color: '#6b7280',
-                  lineHeight: '1.6',
-                  marginBottom: '1.5rem',
-                  fontStyle: 'italic',
-                }}>
+              <div key={idx} className="testimonial-card">
+                <FaQuoteLeft className="quote-icon" />
+                <p className="testimonial-text">
                   {testimonial.text}
                 </p>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-                  <div style={{
-                    width: '50px',
-                    height: '50px',
-                    borderRadius: '50%',
-                    backgroundColor: '#10b981',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    color: '#ffffff',
-                    fontWeight: '700',
-                  }}>
+                <div className="testimonial-author">
+                  <div className="author-avatar">
                     {testimonial.name[0]}
                   </div>
                   <div>
-                    <div style={{ fontWeight: '700', color: '#374151' }}>{testimonial.name}</div>
-                    <div style={{ color: '#6b7280', fontSize: '0.9rem' }}>{testimonial.role}</div>
+                    <div className="author-name">{testimonial.name}</div>
+                    <div className="author-role">{testimonial.role}</div>
                   </div>
                 </div>
               </div>
@@ -431,68 +174,24 @@ export default function Home() {
           </div>
         </section>
 
-        <section style={{
-          padding: '4rem 2rem',
-          maxWidth: '1200px',
-          margin: '0 auto',
-        }}>
-          <h2 style={{
-            fontSize: '2.5rem',
-            fontWeight: '700',
-            color: '#ffffff',
-            marginBottom: '3rem',
-            textAlign: 'center',
-          }}>
+        <section className="blog-section">
+          <h2 className="section-title-large blog-title">
             Blog Post
           </h2>
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-            gap: '2rem',
-          }}>
+          <div className="blog-grid">
             {[1, 2, 3].map((idx) => (
-              <div key={idx} style={{
-                backgroundColor: '#ffffff',
-                borderRadius: '1rem',
-                overflow: 'hidden',
-                boxShadow: '0 4px 20px rgba(0, 0, 0, 0.2)',
-              }}>
-                <div style={{
-                  height: '200px',
-                  backgroundColor: '#10b981',
-                  opacity: 0.3,
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  fontSize: '4rem',
-                  color: '#ffffff',
-                }}>
+              <div key={idx} className="blog-card">
+                <div className="blog-image">
                   <FaUserMd />
                 </div>
-                <div style={{ padding: '1.5rem' }}>
-                  <h3 style={{
-                    fontSize: '1.25rem',
-                    fontWeight: '700',
-                    color: '#374151',
-                    marginBottom: '1rem',
-                  }}>
+                <div className="blog-content">
+                  <h3 className="blog-card-title">
                     Healthcare Tips and News
                   </h3>
-                  <p style={{
-                    color: '#6b7280',
-                    marginBottom: '1rem',
-                    lineHeight: '1.6',
-                  }}>
+                  <p className="blog-card-text">
                     Stay updated with the latest healthcare news and expert medical advice.
                   </p>
-                  <Link href="/#blog" style={{
-                    color: '#10b981',
-                    textDecoration: 'none',
-                    fontWeight: '600',
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: '0.5rem',
-                  }}>
+                  <Link href="/#blog" className="blog-link">
                     Read More <FaArrowRight />
                   </Link>
                 </div>
@@ -501,76 +200,44 @@ export default function Home() {
           </div>
         </section>
 
-        <footer id="contact" style={{
-          backgroundColor: '#ffffff',
-          padding: '4rem 2rem 2rem',
-          marginTop: '4rem',
-          borderTop: '1px solid rgba(0, 0, 0, 0.1)',
-        }}>
-          <div style={{
-            maxWidth: '1200px',
-            margin: '0 auto',
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
-            gap: '3rem',
-            marginBottom: '2rem',
-          }}>
-            <div>
-              <h3 style={{ color: '#1f2937', marginBottom: '1rem', fontSize: '1.25rem', fontWeight: '700' }}>Healthcare</h3>
-              <p style={{ color: '#6b7280', lineHeight: '1.6' }}>
+        <footer id="contact" className="footer">
+          <div className="footer-grid">
+            <div className="footer-column">
+              <h3 className="footer-title">Healthcare</h3>
+              <p className="footer-text">
                 Apollo Hospitals - Providing world-class healthcare services with expert doctors and advanced medical facilities.
               </p>
             </div>
-            <div>
-              <h3 style={{ color: '#1f2937', marginBottom: '1rem', fontSize: '1.25rem', fontWeight: '700' }}>Contact Us</h3>
-              <p style={{ color: '#6b7280', marginBottom: '0.5rem' }}>123 Medical Street</p>
-              <p style={{ color: '#6b7280', marginBottom: '0.5rem' }}>Phone: +1 234 567 8900</p>
-              <p style={{ color: '#6b7280' }}>Email: info@apollohospitals.com</p>
+            <div className="footer-column">
+              <h3 className="footer-title">Contact Us</h3>
+              <p className="footer-text">123 Medical Street</p>
+              <p className="footer-text">Phone: +1 234 567 8900</p>
+              <p className="footer-text">Email: info@apollohospitals.com</p>
             </div>
-            <div>
-              <h3 style={{ color: '#1f2937', marginBottom: '1rem', fontSize: '1.25rem', fontWeight: '700' }}>Link</h3>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-                <Link href="/" style={{ color: '#6b7280', textDecoration: 'none' }}>Home</Link>
-                <Link href="/#about" style={{ color: '#6b7280', textDecoration: 'none' }}>About Us</Link>
-                <Link href="/#services" style={{ color: '#6b7280', textDecoration: 'none' }}>Services</Link>
-                <Link href="/appointments" style={{ color: '#6b7280', textDecoration: 'none' }}>Book Appointment</Link>
+            <div className="footer-column">
+              <h3 className="footer-title">Link</h3>
+              <div className="footer-links">
+                <Link href="/" className="footer-link">Home</Link>
+                <Link href="/#about" className="footer-link">About Us</Link>
+                <Link href="/#services" className="footer-link">Services</Link>
+                <Link href="/appointments" className="footer-link">Book Appointment</Link>
               </div>
             </div>
-            <div>
-              <h3 style={{ color: '#1f2937', marginBottom: '1rem', fontSize: '1.25rem', fontWeight: '700' }}>Subscribe & Newsletter</h3>
-              <div style={{ display: 'flex', gap: '0.5rem', marginBottom: '1rem' }}>
+            <div className="footer-column">
+              <h3 className="footer-title">Subscribe & Newsletter</h3>
+              <div className="footer-subscribe">
                 <input
                   type="email"
                   placeholder="Enter your email"
-                  style={{
-                    flex: 1,
-                    padding: '0.75rem',
-                    border: '1px solid #d1d5db',
-                    borderRadius: '0.5rem',
-                    backgroundColor: '#ffffff',
-                    color: '#374151',
-                  }}
+                  className="footer-input"
                 />
-                <button style={{
-                  backgroundColor: '#10b981',
-                  color: '#ffffff',
-                  padding: '0.75rem 1.5rem',
-                  border: 'none',
-                  borderRadius: '0.5rem',
-                  fontWeight: '600',
-                  cursor: 'pointer',
-                }}>
+                <button className="footer-button">
                   Subscribe
                 </button>
               </div>
             </div>
           </div>
-          <div style={{
-            borderTop: '1px solid rgba(0, 0, 0, 0.1)',
-            paddingTop: '2rem',
-            textAlign: 'center',
-            color: '#6b7280',
-          }}>
+          <div className="footer-copyright">
             Copyright © 2023 All Rights Reserved.
           </div>
         </footer>
