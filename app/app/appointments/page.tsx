@@ -25,6 +25,9 @@ function AppointmentsContent() {
   const [pagination, setPagination] = useState({
     total: 0,
     hasMore: false,
+    hasPrev: false,
+    currentPage: 1,
+    totalPages: 1,
   });
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -34,12 +37,19 @@ function AppointmentsContent() {
     setError(null);
     try {
       const data = await api.getAppointments(skip, limit);
-      setAppointments(data.appointments || []);
-      setPagination(data.pagination || { total: 0, hasMore: false });
+      const appointmentsList = data.appointments || [];
+      setAppointments(appointmentsList);
+      setPagination(data.pagination || { 
+        total: appointmentsList.length, 
+        hasMore: false,
+        currentPage: 1,
+        totalPages: 1,
+        hasPrev: false
+      });
     } catch (err: any) {
       setError(err.message || 'Failed to load appointments');
       setAppointments([]);
-      setPagination({ total: 0, hasMore: false });
+      setPagination({ total: 0, hasMore: false, currentPage: 1, totalPages: 1, hasPrev: false });
     } finally {
       setLoading(false);
     }

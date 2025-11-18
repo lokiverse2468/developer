@@ -81,21 +81,35 @@ export default function AppointmentList({
   const handleDeleteConfirm = async () => {
     if (!appointmentToDelete) return;
 
-    setDeleting(appointmentToDelete);
-    setShowConfirmDialog(false);
+    const appointmentId = appointmentToDelete;
+    const appointmentToRestore = appointments.find(apt => apt.id === appointmentId);
     
-    try {
-      await api.deleteAppointment(appointmentToDelete);
-      setAppointments((prev) => prev.filter((apt) => apt.id !== appointmentToDelete));
-      if (onRefresh) {
-        setTimeout(() => onRefresh(), 100);
+    setShowConfirmDialog(false);
+    setDeleting(appointmentId);
+    
+    setAppointments((prev) => prev.filter((apt) => apt.id !== appointmentId));
+    
+    if (onRefresh) {
+      setTimeout(() => onRefresh(), 100);
+    }
+    
+    api.deleteAppointment(appointmentId).catch((error: any) => {
+      if (appointmentToRestore) {
+        setAppointments((prev) => {
+          const exists = prev.find(apt => apt.id === appointmentId);
+          if (!exists) {
+            return [...prev, appointmentToRestore].sort((a, b) => 
+              new Date(a.scheduled_at).getTime() - new Date(b.scheduled_at).getTime()
+            );
+          }
+          return prev;
+        });
       }
-    } catch (error: any) {
-      alert(error.message || 'Failed to delete appointment');
-    } finally {
+      alert(error.message || 'Failed to delete appointment. Item restored.');
+    }).finally(() => {
       setDeleting(null);
       setAppointmentToDelete(null);
-    }
+    });
   };
 
   const handleDeleteCancel = () => {
