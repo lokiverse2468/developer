@@ -94,7 +94,7 @@ function AppointmentsContent() {
 export default function AppointmentsPage() {
   return (
     <>
-      <Navigation />
+      <Navigation hideBookButton={true} />
       <div className="container">
         <div className="header">
           <ApolloLogo width={100} height={100} />
