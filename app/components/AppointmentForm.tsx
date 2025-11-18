@@ -228,24 +228,12 @@ export default function AppointmentForm({ onSuccess }: AppointmentFormProps) {
           />
         </div>
 
-        <div style={{ display: 'flex', gap: '0.75rem', justifyContent: 'flex-end' }}>
+        <div className="form-actions">
           <button
             type="button"
             onClick={handleCancel}
             className="btn btn-secondary"
             disabled={isPending}
-            style={{
-              padding: '0.75rem 1.5rem',
-              borderRadius: '0.5rem',
-              border: '1px solid #d1d5db',
-              backgroundColor: '#ffffff',
-              color: '#374151',
-              cursor: isPending ? 'not-allowed' : 'pointer',
-              fontSize: '0.875rem',
-              fontWeight: '500',
-              transition: 'all 0.2s ease',
-              opacity: isPending ? 0.5 : 1,
-            }}
           >
             Cancel
           </button>

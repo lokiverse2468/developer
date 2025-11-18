@@ -63,16 +63,12 @@ function AppointmentsContent() {
   return (
     <div className="appointments-layout">
       <div className="card appointment-form-card">
-        <h2 style={{ marginBottom: '1.5rem', color: '#374151' }}>
-          Create New Appointment
-        </h2>
+        <h2>Create New Appointment</h2>
         <AppointmentForm onSuccess={fetchAppointments} />
       </div>
 
       <div className="card appointment-list-card">
-        <h2 style={{ marginBottom: '1.5rem', color: '#374151' }}>
-          Appointments List
-        </h2>
+        <h2>Appointments List</h2>
         {loading ? (
           <div className="loading">Loading appointments...</div>
         ) : error ? (
@@ -97,7 +93,9 @@ export default function AppointmentsPage() {
       <Navigation hideBookButton={true} />
       <div className="container">
         <div className="header">
-          <ApolloLogo width={100} height={100} />
+          <div className="logo-wrapper">
+            <ApolloLogo width={100} height={100} />
+          </div>
           <h1>Appointment Management</h1>
           <p>Create and manage patient appointments</p>
         </div>

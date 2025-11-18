@@ -32,6 +32,8 @@ a {
   padding: 2rem;
   position: relative;
   z-index: 1;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .appointments-layout {
@@ -39,6 +41,8 @@ a {
   grid-template-columns: 1fr 1.5fr;
   gap: 2rem;
   margin-top: 2rem;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .appointment-form-card {
@@ -52,44 +56,33 @@ a {
 
 .card {
   background: white;
-  border-radius: 20px;
+  border-radius: 16px;
   box-shadow: 
-    0 20px 60px rgba(0, 0, 0, 0.3),
-    0 8px 25px rgba(0, 0, 0, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.9),
-    0 1px 3px rgba(0, 0, 0, 0.12);
-  padding: 2.5rem;
-  margin-bottom: 2.5rem;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  padding: 2rem;
+  margin-bottom: 2rem;
+  border: 1px solid #e5e7eb;
   position: relative;
-  transform: translateY(0);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.card::before {
-  content: '';
-  position: absolute;
-  top: -2px;
-  left: -2px;
-  right: -2px;
-  bottom: -2px;
-  background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1));
-  border-radius: 20px;
-  z-index: -1;
-  opacity: 0;
-  transition: opacity 0.3s ease;
+  transition: all 0.3s ease;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
 .card:hover {
-  transform: translateY(-4px);
   box-shadow: 
-    0 25px 70px rgba(0, 0, 0, 0.35),
-    0 10px 30px rgba(0, 0, 0, 0.25),
-    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+    0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
 
-.card:hover::before {
-  opacity: 1;
+.card h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #f3f4f6;
 }
 
 .header {
@@ -131,14 +124,16 @@ a {
 }
 
 .form-group {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.75rem;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .form-group label {
   display: block;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.625rem;
   font-weight: 600;
-  color: #1e293b;
+  color: #374151;
   font-size: 0.95rem;
   letter-spacing: 0.01em;
 }
@@ -146,30 +141,109 @@ a {
 .form-group input,
 .form-group textarea {
   width: 100%;
-  padding: 0.75rem;
-  border: 2px solid #e5e7eb;
-  border-radius: 8px;
+  max-width: 100%;
+  padding: 0.875rem 1rem;
+  border: 1.5px solid #d1d5db;
+  border-radius: 10px;
   font-size: 1rem;
-  transition: border-color 0.2s, box-shadow 0.2s;
+  transition: all 0.2s ease;
+  background-color: #ffffff;
+  color: #1f2937;
+  font-family: inherit;
+  box-sizing: border-box;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #9ca3af;
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
   outline: none;
-  border-color: #3b82f6;
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  border-color: #10b981;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+  background-color: #ffffff;
+}
+
+.form-group input:hover,
+.form-group textarea:hover {
+  border-color: #9ca3af;
 }
 
 .form-group textarea {
-  min-height: 100px;
+  min-height: 120px;
   resize: vertical;
   font-family: inherit;
+  line-height: 1.5;
 }
 
 .form-group .error {
   color: #ef4444;
   font-size: 0.875rem;
-  margin-top: 0.25rem;
+  margin-top: 0.5rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.form-group select {
+  width: 100%;
+  max-width: 100%;
+  padding: 0.875rem 1rem;
+  border: 1.5px solid #d1d5db;
+  border-radius: 10px;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+  background-color: #ffffff;
+  color: #1f2937;
+  font-family: inherit;
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3E%3Cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 1.5em 1.5em;
+  padding-right: 2.5rem;
+  box-sizing: border-box;
+}
+
+.form-group select:focus {
+  outline: none;
+  border-color: #10b981;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+  background-color: #ffffff;
+}
+
+.form-group select:hover {
+  border-color: #9ca3af;
+}
+
+.form-group select:disabled {
+  background-color: #f9fafb;
+  cursor: not-allowed;
+  opacity: 0.6;
+  border-color: #e5e7eb;
+}
+
+.form-actions {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #f3f4f6;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.logo-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
 }
 
 .btn {
@@ -177,21 +251,28 @@ a {
   font-size: 1rem;
   font-weight: 600;
   border: none;
-  border-radius: 12px;
+  border-radius: 10px;
   cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  display: inline-block;
-  letter-spacing: 0.02em;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 0.01em;
   position: relative;
   overflow: hidden;
+  min-width: 140px;
+  white-space: nowrap;
+  box-sizing: border-box;
+  flex-shrink: 0;
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
   color: white;
   box-shadow: 
-    0 4px 14px rgba(59, 130, 246, 0.4),
+    0 4px 14px rgba(16, 185, 129, 0.3),
     0 2px 6px rgba(0, 0, 0, 0.1);
+  border: none;
 }
 
 .btn-primary::before {
@@ -208,9 +289,9 @@ a {
 .btn-primary:hover {
   transform: translateY(-2px);
   box-shadow: 
-    0 6px 20px rgba(59, 130, 246, 0.5),
+    0 6px 20px rgba(16, 185, 129, 0.4),
     0 4px 10px rgba(0, 0, 0, 0.15);
-  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+  background: linear-gradient(135deg, #059669 0%, #047857 100%);
 }
 
 .btn-primary:hover::before {
@@ -228,13 +309,33 @@ a {
 }
 
 .btn-secondary {
-  background: #6b7280;
-  color: white;
-  margin-left: 0.5rem;
+  background: #ffffff;
+  color: #374151;
+  border: 1.5px solid #d1d5db;
+  padding: 0.875rem 1.75rem;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 120px;
 }
 
 .btn-secondary:hover {
-  background: #4b5563;
+  background: #f9fafb;
+  border-color: #9ca3af;
+  color: #1f2937;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.btn-secondary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
 }
 
 .table-container {
@@ -298,21 +399,28 @@ table tr:hover {
 }
 
 .alert {
-  padding: 1rem;
-  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  border-radius: 10px;
   margin-bottom: 1.5rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-left: 4px solid;
 }
 
 .alert-success {
   background: #d1fae5;
   color: #065f46;
-  border: 1px solid #a7f3d0;
+  border-color: #10b981;
+  border-left-color: #10b981;
 }
 
 .alert-error {
   background: #fee2e2;
   color: #991b1b;
-  border: 1px solid #fca5a5;
+  border-color: #ef4444;
+  border-left-color: #ef4444;
 }
 
 .loading {
@@ -408,11 +516,16 @@ table tr:hover {
   .appointments-layout {
     grid-template-columns: 1fr;
     gap: 1.5rem;
+    margin-top: 1.5rem;
+    width: 100%;
+    max-width: 100%;
   }
   
   .appointment-form-card,
   .appointment-list-card {
     margin-bottom: 1.5rem;
+    width: 100%;
+    max-width: 100%;
   }
 }
 
@@ -497,14 +610,100 @@ table tr:hover {
 @media (max-width: 768px) {
   .container {
     padding: 1rem;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .header {
+    margin-bottom: 2rem;
+  }
+
+  .logo-wrapper {
+    margin-bottom: 0.75rem;
+  }
+
+  .logo-wrapper svg {
+    width: 60px !important;
+    height: 60px !important;
   }
 
   .header h1 {
-    font-size: 2rem;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .header p {
+    font-size: 0.9rem;
   }
 
   .card {
     padding: 1.5rem;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .card h2 {
+    font-size: 1.25rem;
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.875rem;
+  }
+
+  .form-actions {
+    flex-direction: column-reverse;
+    width: 100%;
+    max-width: 100%;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+    padding-top: 1.25rem;
+    box-sizing: border-box;
+  }
+
+  .form-actions .btn {
+    width: 100%;
+    max-width: 100%;
+    justify-content: center;
+    min-width: auto;
+    padding: 0.875rem 1.5rem;
+    box-sizing: border-box;
+  }
+
+  .form-actions .btn-primary {
+    order: -1;
+  }
+
+  .form-group {
+    margin-bottom: 1.25rem;
+  }
+
+  .form-group label {
+    font-size: 0.875rem;
+    margin-bottom: 0.375rem;
+  }
+
+  .form-group input,
+  .form-group textarea,
+  .form-group select {
+    padding: 0.625rem;
+    font-size: 0.9rem;
+    border-width: 1.5px;
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .form-group input[type="datetime-local"] {
+    font-size: 0.9rem;
+    padding: 0.625rem;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .form-group textarea {
+    min-height: 80px;
   }
 
   table {
@@ -1506,7 +1705,38 @@ table tr:hover {
     padding: 1.5rem;
   }
 
-  /* Appointments page mobile */
+  /* Appointments page mobile - extra small */
+  .header h1 {
+    font-size: 1.25rem;
+  }
+
+  .header p {
+    font-size: 0.85rem;
+  }
+
+  .logo-wrapper svg {
+    width: 50px !important;
+    height: 50px !important;
+  }
+
+  .card {
+    padding: 1.25rem;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .card h2 {
+    font-size: 1.1rem;
+  }
+
+  .form-group input,
+  .form-group textarea,
+  .form-group select {
+    font-size: 0.875rem;
+    padding: 0.5rem;
+  }
+
   table th:nth-child(4),
   table td:nth-child(4) {
     font-size: 0.75rem;
