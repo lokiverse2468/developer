@@ -114,6 +114,17 @@ export default function AppointmentForm() {
     }
   };
 
+  const handleCancel = () => {
+    setFormData({
+      patient_name: '',
+      doctor: '',
+      scheduled_at: '',
+      notes: '',
+    });
+    setErrors({});
+    setMessage(null);
+  };
+
   const getMinDateTime = () => {
     const now = new Date();
     now.setMinutes(now.getMinutes() + 1);
@@ -200,13 +211,35 @@ export default function AppointmentForm() {
           />
         </div>
 
-        <button
-          type="submit"
-          className="btn btn-primary"
-          disabled={isPending}
-        >
-          {isPending ? 'Creating...' : 'Create Appointment'}
-        </button>
+        <div style={{ display: 'flex', gap: '0.75rem', justifyContent: 'flex-end' }}>
+          <button
+            type="button"
+            onClick={handleCancel}
+            className="btn btn-secondary"
+            disabled={isPending}
+            style={{
+              padding: '0.75rem 1.5rem',
+              borderRadius: '0.5rem',
+              border: '1px solid #d1d5db',
+              backgroundColor: '#ffffff',
+              color: '#374151',
+              cursor: isPending ? 'not-allowed' : 'pointer',
+              fontSize: '0.875rem',
+              fontWeight: '500',
+              transition: 'all 0.2s ease',
+              opacity: isPending ? 0.5 : 1,
+            }}
+          >
+            Cancel
+          </button>
+          <button
+            type="submit"
+            className="btn btn-primary"
+            disabled={isPending}
+          >
+            {isPending ? 'Creating...' : 'Create Appointment'}
+          </button>
+        </div>
       </form>
     </>
   );
