@@ -20,7 +20,7 @@ interface Appointment {
 function AppointmentsContent() {
   const searchParams = useSearchParams();
   const skip = parseInt(searchParams.get('skip') || '0');
-  const limit = 3;
+  const limit = 10;
 
   const [appointments, setAppointments] = useState<Appointment[]>([]);
   const [pagination, setPagination] = useState({

@@ -4,7 +4,7 @@ const { invalidateAppointmentsCache } = require('../middleware/cache');
 const getAppointments = async (req, res, next) => {
   try {
     const skip = parseInt(req.query.skip) || 0;
-    const limit = parseInt(req.query.limit) || 3;
+    const limit = parseInt(req.query.limit) || 10;
 
     if (skip < 0 || limit < 1 || limit > 100) {
       return res.status(400).json({
