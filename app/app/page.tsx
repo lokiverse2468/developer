@@ -7,7 +7,7 @@ export default function Home() {
     <>
       <Navigation />
       
-      <div style={{ position: 'relative', zIndex: 1 }}>
+      <div>
         <section style={{
           padding: '4rem 2rem',
           maxWidth: '1200px',
@@ -21,7 +21,7 @@ export default function Home() {
             <h1 style={{
               fontSize: '3.5rem',
               fontWeight: '800',
-              color: '#ffffff',
+              color: '#1f2937',
               marginBottom: '1.5rem',
               lineHeight: '1.2',
             }}>
@@ -29,7 +29,7 @@ export default function Home() {
             </h1>
             <p style={{
               fontSize: '1.25rem',
-              color: '#cbd5e1',
+              color: '#6b7280',
               marginBottom: '2rem',
               lineHeight: '1.6',
             }}>
@@ -51,7 +51,7 @@ export default function Home() {
                 Book Appointment
               </Link>
               <Link href="/#about" style={{
-                color: '#ffffff',
+                color: '#10b981',
                 textDecoration: 'none',
                 fontWeight: '600',
                 fontSize: '1.1rem',
@@ -63,7 +63,7 @@ export default function Home() {
                 Learn More
               </Link>
             </div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', color: '#cbd5e1' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', color: '#6b7280' }}>
               <span style={{ fontWeight: '600' }}>95K+ Join in already</span>
               <div style={{ display: 'flex', gap: '-0.5rem' }}>
                 {[1, 2, 3, 4].map((i) => (
@@ -110,21 +110,21 @@ export default function Home() {
           margin: '0 auto',
         }}>
           <h2 style={{
-            fontSize: '2.5rem',
+            fontSize: '2rem',
             fontWeight: '700',
-            color: '#ffffff',
-            marginBottom: '2rem',
+            color: '#1f2937',
+            marginBottom: '1.5rem',
             textAlign: 'center',
           }}>
             Find Your Perfect Doctor
           </h2>
           <div style={{
             backgroundColor: '#ffffff',
-            padding: '2rem',
-            borderRadius: '1rem',
+            padding: '1.25rem',
+            borderRadius: '0.75rem',
             boxShadow: '0 10px 30px rgba(0, 0, 0, 0.3)',
             display: 'flex',
-            gap: '1rem',
+            gap: '0.75rem',
             alignItems: 'center',
           }}>
             <input
@@ -132,10 +132,10 @@ export default function Home() {
               placeholder="Doctor Name"
               style={{
                 flex: 1,
-                padding: '1rem',
+                padding: '0.75rem',
                 border: '1px solid #d1d5db',
-                borderRadius: '0.5rem',
-                fontSize: '1rem',
+                borderRadius: '0.4rem',
+                fontSize: '0.9rem',
               }}
             />
             <input
@@ -143,10 +143,10 @@ export default function Home() {
               placeholder="Specialist"
               style={{
                 flex: 1,
-                padding: '1rem',
+                padding: '0.75rem',
                 border: '1px solid #d1d5db',
-                borderRadius: '0.5rem',
-                fontSize: '1rem',
+                borderRadius: '0.4rem',
+                fontSize: '0.9rem',
               }}
             />
             <input
@@ -154,19 +154,20 @@ export default function Home() {
               placeholder="Hospital"
               style={{
                 flex: 1,
-                padding: '1rem',
+                padding: '0.75rem',
                 border: '1px solid #d1d5db',
-                borderRadius: '0.5rem',
-                fontSize: '1rem',
+                borderRadius: '0.4rem',
+                fontSize: '0.9rem',
               }}
             />
             <Link href="/appointments" style={{
               backgroundColor: '#10b981',
               color: '#ffffff',
-              padding: '1rem 2rem',
-              borderRadius: '0.5rem',
+              padding: '0.75rem 1.5rem',
+              borderRadius: '0.4rem',
               textDecoration: 'none',
               fontWeight: '600',
+              fontSize: '0.9rem',
               display: 'flex',
               alignItems: 'center',
               gap: '0.5rem',
@@ -184,7 +185,7 @@ export default function Home() {
           <h2 style={{
             fontSize: '2.5rem',
             fontWeight: '700',
-            color: '#ffffff',
+            color: '#1f2937',
             marginBottom: '3rem',
             textAlign: 'center',
           }}>
@@ -249,14 +250,14 @@ export default function Home() {
               <h2 style={{
                 fontSize: '2.5rem',
                 fontWeight: '700',
-                color: '#ffffff',
+                color: '#1f2937',
                 marginBottom: '1.5rem',
               }}>
                 Easy Online Appointment Booking
               </h2>
               <p style={{
                 fontSize: '1.1rem',
-                color: '#cbd5e1',
+                color: '#6b7280',
                 marginBottom: '2rem',
                 lineHeight: '1.6',
               }}>
@@ -302,7 +303,7 @@ export default function Home() {
           <h2 style={{
             fontSize: '2.5rem',
             fontWeight: '700',
-            color: '#ffffff',
+            color: '#1f2937',
             marginBottom: '3rem',
             textAlign: 'center',
           }}>
@@ -327,7 +328,7 @@ export default function Home() {
                     alignItems: 'center',
                     gap: '1rem',
                     marginBottom: '1.5rem',
-                    color: '#ffffff',
+                    color: '#374151',
                     fontSize: '1.1rem',
                   }}>
                     <FaCheckCircle style={{ color: '#10b981', fontSize: '1.5rem', flexShrink: 0 }} />
@@ -376,7 +377,7 @@ export default function Home() {
           <h2 style={{
             fontSize: '2.5rem',
             fontWeight: '700',
-            color: '#ffffff',
+            color: '#1f2937',
             marginBottom: '3rem',
             textAlign: 'center',
           }}>
@@ -501,9 +502,10 @@ export default function Home() {
         </section>
 
         <footer id="contact" style={{
-          backgroundColor: 'rgba(15, 23, 42, 0.9)',
+          backgroundColor: '#ffffff',
           padding: '4rem 2rem 2rem',
           marginTop: '4rem',
+          borderTop: '1px solid rgba(0, 0, 0, 0.1)',
         }}>
           <div style={{
             maxWidth: '1200px',
@@ -514,28 +516,28 @@ export default function Home() {
             marginBottom: '2rem',
           }}>
             <div>
-              <h3 style={{ color: '#ffffff', marginBottom: '1rem', fontSize: '1.25rem', fontWeight: '700' }}>Healthcare</h3>
-              <p style={{ color: '#cbd5e1', lineHeight: '1.6' }}>
+              <h3 style={{ color: '#1f2937', marginBottom: '1rem', fontSize: '1.25rem', fontWeight: '700' }}>Healthcare</h3>
+              <p style={{ color: '#6b7280', lineHeight: '1.6' }}>
                 Apollo Hospitals - Providing world-class healthcare services with expert doctors and advanced medical facilities.
               </p>
             </div>
             <div>
-              <h3 style={{ color: '#ffffff', marginBottom: '1rem', fontSize: '1.25rem', fontWeight: '700' }}>Contact Us</h3>
-              <p style={{ color: '#cbd5e1', marginBottom: '0.5rem' }}>123 Medical Street</p>
-              <p style={{ color: '#cbd5e1', marginBottom: '0.5rem' }}>Phone: +1 234 567 8900</p>
-              <p style={{ color: '#cbd5e1' }}>Email: info@apollohospitals.com</p>
+              <h3 style={{ color: '#1f2937', marginBottom: '1rem', fontSize: '1.25rem', fontWeight: '700' }}>Contact Us</h3>
+              <p style={{ color: '#6b7280', marginBottom: '0.5rem' }}>123 Medical Street</p>
+              <p style={{ color: '#6b7280', marginBottom: '0.5rem' }}>Phone: +1 234 567 8900</p>
+              <p style={{ color: '#6b7280' }}>Email: info@apollohospitals.com</p>
             </div>
             <div>
-              <h3 style={{ color: '#ffffff', marginBottom: '1rem', fontSize: '1.25rem', fontWeight: '700' }}>Link</h3>
+              <h3 style={{ color: '#1f2937', marginBottom: '1rem', fontSize: '1.25rem', fontWeight: '700' }}>Link</h3>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-                <Link href="/" style={{ color: '#cbd5e1', textDecoration: 'none' }}>Home</Link>
-                <Link href="/#about" style={{ color: '#cbd5e1', textDecoration: 'none' }}>About Us</Link>
-                <Link href="/#services" style={{ color: '#cbd5e1', textDecoration: 'none' }}>Services</Link>
-                <Link href="/appointments" style={{ color: '#cbd5e1', textDecoration: 'none' }}>Book Appointment</Link>
+                <Link href="/" style={{ color: '#6b7280', textDecoration: 'none' }}>Home</Link>
+                <Link href="/#about" style={{ color: '#6b7280', textDecoration: 'none' }}>About Us</Link>
+                <Link href="/#services" style={{ color: '#6b7280', textDecoration: 'none' }}>Services</Link>
+                <Link href="/appointments" style={{ color: '#6b7280', textDecoration: 'none' }}>Book Appointment</Link>
               </div>
             </div>
             <div>
-              <h3 style={{ color: '#ffffff', marginBottom: '1rem', fontSize: '1.25rem', fontWeight: '700' }}>Subscribe & Newsletter</h3>
+              <h3 style={{ color: '#1f2937', marginBottom: '1rem', fontSize: '1.25rem', fontWeight: '700' }}>Subscribe & Newsletter</h3>
               <div style={{ display: 'flex', gap: '0.5rem', marginBottom: '1rem' }}>
                 <input
                   type="email"
@@ -543,10 +545,10 @@ export default function Home() {
                   style={{
                     flex: 1,
                     padding: '0.75rem',
-                    border: '1px solid #475569',
+                    border: '1px solid #d1d5db',
                     borderRadius: '0.5rem',
-                    backgroundColor: 'rgba(255, 255, 255, 0.1)',
-                    color: '#ffffff',
+                    backgroundColor: '#ffffff',
+                    color: '#374151',
                   }}
                 />
                 <button style={{
@@ -564,10 +566,10 @@ export default function Home() {
             </div>
           </div>
           <div style={{
-            borderTop: '1px solid rgba(255, 255, 255, 0.1)',
+            borderTop: '1px solid rgba(0, 0, 0, 0.1)',
             paddingTop: '2rem',
             textAlign: 'center',
-            color: '#cbd5e1',
+            color: '#6b7280',
           }}>
             Copyright © 2023 All Rights Reserved.
           </div>

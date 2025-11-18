@@ -1,7 +1,4 @@
-import { FaHospital } from 'react-icons/fa';
-
 export default function ApolloLogo({ width = 120, height = 120 }: { width?: number; height?: number }) {
-  const iconSize = Math.floor(width * 0.5);
   const titleSize = Math.floor(width * 0.12);
   const subtitleSize = Math.floor(width * 0.08);
 
@@ -24,15 +21,6 @@ export default function ApolloLogo({ width = 120, height = 120 }: { width?: numb
           padding: '1rem',
         }}
       >
-        <FaHospital 
-          style={{ 
-            fontSize: `${iconSize}px`,
-            color: '#10b981',
-            marginBottom: '0.5rem',
-            filter: 'drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2))',
-            display: 'block',
-          }} 
-        />
         <span style={{ 
           color: '#10b981', 
           fontSize: `${titleSize}px`,

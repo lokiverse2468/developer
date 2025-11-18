@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, Suspense } from 'react';
+import { useState, useEffect, useCallback, Suspense } from 'react';
 import Navigation from '@/components/Navigation';
 import ApolloLogo from '@/components/ApolloLogo';
 import AppointmentForm from '@/components/AppointmentForm';
@@ -33,7 +33,7 @@ function AppointmentsContent() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  const fetchAppointments = async () => {
+  const fetchAppointments = useCallback(async () => {
     setLoading(true);
     setError(null);
     try {
@@ -54,11 +54,11 @@ function AppointmentsContent() {
     } finally {
       setLoading(false);
     }
-  };
+  }, [skip, limit]);
 
   useEffect(() => {
     fetchAppointments();
-  }, [skip, limit]);
+  }, [fetchAppointments]);
 
   return (
     <div className="appointments-layout">
@@ -66,7 +66,7 @@ function AppointmentsContent() {
         <h2 style={{ marginBottom: '1.5rem', color: '#374151' }}>
           Create New Appointment
         </h2>
-        <AppointmentForm />
+        <AppointmentForm onSuccess={fetchAppointments} />
       </div>
 
       <div className="card appointment-list-card">

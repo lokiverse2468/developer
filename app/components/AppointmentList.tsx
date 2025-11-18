@@ -61,6 +61,12 @@ export default function AppointmentList({
             : apt
         )
       );
+      // Refresh the list to ensure we have the latest data
+      if (onRefresh) {
+        setTimeout(() => {
+          onRefresh();
+        }, 300);
+      }
     } catch (error: any) {
       alert(error.message || 'Failed to update status');
       if (onRefresh) onRefresh();
@@ -113,6 +119,12 @@ export default function AppointmentList({
                     : apt
                 )
               );
+            }
+            // Refresh the list to get the latest data
+            if (onRefresh) {
+              setTimeout(() => {
+                onRefresh();
+              }, 500);
             }
           }}
         />

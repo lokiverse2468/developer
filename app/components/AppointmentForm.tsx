@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, FormEvent } from 'react';
+import { useRouter } from 'next/navigation';
 import { api } from '@/lib/api';
 
 const DOCTORS = [
@@ -21,7 +22,12 @@ const DOCTORS = [
   { name: 'Dr. Karan Malhotra', specialization: 'General Surgery' },
 ];
 
-export default function AppointmentForm() {
+interface AppointmentFormProps {
+  onSuccess?: () => void;
+}
+
+export default function AppointmentForm({ onSuccess }: AppointmentFormProps) {
+  const router = useRouter();
   const [isPending, setIsPending] = useState(false);
   const [formData, setFormData] = useState({
     patient_name: '',
@@ -62,6 +68,7 @@ export default function AppointmentForm() {
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
+    e.stopPropagation();
 
     if (!validate()) {
       return;
@@ -89,10 +96,20 @@ export default function AppointmentForm() {
         notes: '',
       });
       setErrors({});
-      setTimeout(() => {
-        window.location.reload();
-      }, 500);
-      setTimeout(() => setMessage(null), 3000);
+      
+      // Clear any query parameters from URL
+      if (window.location.search) {
+        router.replace('/appointments', { scroll: false });
+      }
+      
+      // Refresh the appointments list
+      if (onSuccess) {
+        setTimeout(() => {
+          onSuccess();
+        }, 500);
+      }
+      
+      setTimeout(() => setMessage(null), 5000);
     } catch (error: any) {
       setMessage({ type: 'error', text: error.message || 'Failed to create appointment' });
     } finally {
@@ -139,7 +156,7 @@ export default function AppointmentForm() {
         </div>
       )}
 
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} method="post" action="#" noValidate>
         <div className="form-group">
           <label htmlFor="patient_name">
             Patient Name <span style={{ color: '#ef4444' }}>*</span>
